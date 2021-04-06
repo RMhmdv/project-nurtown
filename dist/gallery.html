@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="./img/logo.svg" type="img/svg">
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+	<link rel="stylesheet" href="./css/bundle.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/media.css">
+
+	<title>Галерея</title>
+
+</head>
+
+<body>
+	<header class="header" data-aos="fade-down" data-aos-duration=2000>
+		<div class="wrapper">
+			<div class="header__nav">
+				<div class="logo" data-aos="fade-right" data-aos-duration=2000>
+					<a href="index.html"><img src="./img/logo.svg" alt="logo" class="logo__image"></a>
+				</div>
+				<div id="menu" class="header__nav-menu">
+					<ul class="header__nav-menu-list">
+						<li class="list-item active"><a class="item first-item" href="index.html">Главная</a></li>
+						<li class="list-item"><a class="item" href="gallery.html">Галерея</a></li>
+						<li class="list-item"><a class="item" href="project.html">Проекты</a></li>
+						<li class="list-item"><a class="item" href="sertificate.html">Сертификаты</a></li>
+						<li class="list-item"><a class="item" href="contact.html">Контакты</a></li>
+					</ul>
+
+				</div>
+				<div class="hamburger-menu">
+					<input id="menu__toggle" type="checkbox" />
+					<label class="menu__btn" for="menu__toggle">
+						<span></span>
+					</label>
+					<ul class="menu__box">
+						<li><a class="menu__item" href="index.html">Главная</a></li>
+						<li><a class="menu__item" href="gallery.html">Галерея</a></li>
+						<li><a class="menu__item" href="project.html">Проекты</a></li>
+						<li><a class="menu__item" href="sertificate.html">Сертификаты</a></li>
+						<li><a class="menu__item" href="contact.html">Контакты</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</header>
+	<section class="gallery" data-aos="fade-up" data-aos-duration=3000>
+		<div class="wrapper">
+			<div class="content-title">
+				<p class="first_title">ГАЛЕРЕЯ</p>
+				<p class="second_title">ФОТОГРАФИЙ</p>
+			</div>
+			<div class="swiper-container gallery__swiper">
+				<div class="swiper-wrapper gallery__swiper-wrapper">
+
+					<div class="swiper-slide">
+						<div class="gallery__slide">
+
+							<div class="gallery__slide-element image1">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image1.png">
+										<img class="image__small" src="../img/gallery_page/image1_small.png">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image2">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image2.png">
+										<img class="image__small" src="../img/gallery_page/image2.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image3">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image3.png">
+										<img class="image__small" src="../img/gallery_page/image3.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image4">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image4.png">
+										<img class="image__small" src="../img/gallery_page/image4.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image5">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image5.png">
+										<img class="image__small" src="../img/gallery_page/image5.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image6">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image6.png">
+										<img class="image__small" src="../img/gallery_page/image6.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image7">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image7.png">
+										<img class="image__small" src="../img/gallery_page/image7.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image8">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image8.png">
+										<img class="image__small" src="../img/gallery_page/image8.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image9">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image9.png">
+										<img class="image__small" src="../img/gallery_page/image9.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image10">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image10.png">
+										<img class="image__small" src="../img/gallery_page/image10.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="gallery__slide">
+
+							<div class="gallery__slide-element image1">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image1.png">
+										<img class="image__small" src="../img/gallery_page/image1_small.png">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image2">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image2.png">
+										<img class="image__small" src="../img/gallery_page/image2.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image3">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image3.png">
+										<img class="image__small" src="../img/gallery_page/image3.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image4">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image4.png">
+										<img class="image__small" src="../img/gallery_page/image4.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image5">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image5.png">
+										<img class="image__small" src="../img/gallery_page/image5.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image6">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image6.png">
+										<img class="image__small" src="../img/gallery_page/image6.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image7">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image7.png">
+										<img class="image__small" src="../img/gallery_page/image7.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image8">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image8.png">
+										<img class="image__small" src="../img/gallery_page/image8.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image9">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image9.png">
+										<img class="image__small" src="../img/gallery_page/image9.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image10">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image10.png">
+										<img class="image__small" src="../img/gallery_page/image10.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="gallery__slide">
+
+							<div class="gallery__slide-element image1">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image1.png">
+										<img class="image__small" src="../img/gallery_page/image1_small.png">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image2">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image2.png">
+										<img class="image__small" src="../img/gallery_page/image2.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image3">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image3.png">
+										<img class="image__small" src="../img/gallery_page/image3.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image4">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image4.png">
+										<img class="image__small" src="../img/gallery_page/image4.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image5">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image5.png">
+										<img class="image__small" src="../img/gallery_page/image5.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image6">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image6.png">
+										<img class="image__small" src="../img/gallery_page/image6.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image7">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image7.png">
+										<img class="image__small" src="../img/gallery_page/image7.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image8">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image8.png">
+										<img class="image__small" src="../img/gallery_page/image8.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image9">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image9.png">
+										<img class="image__small" src="../img/gallery_page/image9.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image10">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image10.png">
+										<img class="image__small" src="../img/gallery_page/image10.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="gallery__slide">
+
+							<div class="gallery__slide-element image1">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image1.png">
+										<img class="image__small" src="../img/gallery_page/image1_small.png">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image2">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image2.png">
+										<img class="image__small" src="../img/gallery_page/image2.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image3">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image3.png">
+										<img class="image__small" src="../img/gallery_page/image3.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image4">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image4.png">
+										<img class="image__small" src="../img/gallery_page/image4.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image5">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image5.png">
+										<img class="image__small" src="../img/gallery_page/image5.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image6">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image6.png">
+										<img class="image__small" src="../img/gallery_page/image6.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image7">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image7.png">
+										<img class="image__small" src="../img/gallery_page/image7.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image8">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image8.png">
+										<img class="image__small" src="../img/gallery_page/image8.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image9">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image9.png">
+										<img class="image__small" src="../img/gallery_page/image9.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image10">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image10.png">
+										<img class="image__small" src="../img/gallery_page/image10.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="gallery__slide">
+
+							<div class="gallery__slide-element image1">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image1.png">
+										<img class="image__small" src="../img/gallery_page/image1_small.png">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image2">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image2.png">
+										<img class="image__small" src="../img/gallery_page/image2.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image3">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image3.png">
+										<img class="image__small" src="../img/gallery_page/image3.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image4">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image4.png">
+										<img class="image__small" src="../img/gallery_page/image4.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image5">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image5.png">
+										<img class="image__small" src="../img/gallery_page/image5.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image6">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image6.png">
+										<img class="image__small" src="../img/gallery_page/image6.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image7">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image7.png">
+										<img class="image__small" src="../img/gallery_page/image7.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image8">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image8.png">
+										<img class="image__small" src="../img/gallery_page/image8.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image9">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image9.png">
+										<img class="image__small" src="../img/gallery_page/image9.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+							<div class="gallery__slide-element image10">
+								<div class="image__wrapper">
+									<a data-fancybox="gallery" href="../img/gallery_page/image10.png">
+										<img class="image__small" src="../img/gallery_page/image10.svg">
+									</a>
+								</div>
+								<div class="element__description">
+									<p class="element__description-text">
+										Описание или пояснение к изображению.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="swiper__navigation">
+				<div class="swiper-pagination"></div>
+				<div class="navigation__arrow">
+					<button class="left">
+						<img class="arrow__left" src="../img/left.svg" alt="left">
+					</button>
+					<button class="right">
+						<img class="arrow__right" src="../img/right.svg" alt="right">
+					</button>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer class="footer">
+		<div class="wrapper">
+			<div class="footer__items">
+
+				<div class="footer__item--logo">
+					<img class="item--logo" src="./img/logo_footer.svg" alt="logo">
+				</div>
+
+				<div class="footer__item">
+					<h5 class="footer__item-title">Информация</h5>
+					<ul class="footer__item-list information">
+						<li><a href="index.html" class="footer__item-link">
+								<p>Главная</p>
+							</a></li>
+						<li><a href="gallery.html" class="footer__item-link">
+								<p>Галерея</p>
+							</a></li>
+						<li><a href="project.html" class="footer__item-link">
+								<p>Проекты</p>
+							</a></li>
+						<li><a href="sertificate.html" class="footer__item-link">
+								<p>Сертификаты</p>
+							</a></li>
+						<li><a href="contact.html" class="footer__item-link">
+								<p>Контакты</p>
+							</a></li>
+					</ul>
+				</div>
+
+				<div class="footer__item footer__item--blog">
+					<h5 class="footer__item-title">Контакты</h5>
+					<ul class="footer__item-list">
+						<li><a href="http://surl.li/jlan" class="footer__item-link"><img src="./img/footer/lockation.svg" alt="lockation">
+								<p> г. Караганда, ул. Телевизионная
+									10</p>
+							</a></li>
+						<li><a href="tel:77017776811" class="footer__item-link"><img src="./img/footer/phone.svg" alt="">
+								<p> +7 (701) 77 76 81</p>
+							</a></li>
+						<li><a href="mailto:Galym.sultanov@mail.ru " class="footer__item-link"><img src="./img/footer/mail.svg" alt="">
+								<p> Galym.sultanov@mail.ru</p>
+							</a></li>
+					</ul>
+				</div>
+
+
+				<div class="footer__item">
+					<h5 class="footer__item-title">Социальные сети
+					</h5>
+					<ul class="footer__item-list-social">
+						<li><a href="#" class="footer__item-link footer__item-link--social footer__item-link--facebook"><img src="./img/footer/facebook.svg" alt="facebook">
+							</a></li>
+						<li><a href="#" class="footer__item-link footer__item-link--social footer__item-link--twitter"><img src="./img/footer/twitter.svg" alt="twitter"></a>
+						</li>
+						<li><a href="#" class="footer__item-link footer__item-link--social footer__item-link--linkedin"><img src="./img/footer/linkedIn.svg" alt="linkedin"></a>
+						</li>
+						<li><a href="#" class="footer__item-link footer__item-link--social footer__item-link--pintetrest"><img src="./img/footer/pinterest.svg" alt="pinterest"></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer__copy">
+			<p class="footer__copy-text"> © 2020 Все права защищены </p>
+		</div>
+		</div>
+	</footer>
+
+
+
+	<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	<script src="./js/vendors/bundle.js"></script>
+	<script src="./js/form-tel.js"></script>
+	<script src="./js/header.js"></script>
+	<script src="./js/contact.js"></script>
+	<script src="./js/swiper.js"></script>
+	<script src="./js/gallery.js"></script>
+</body>
+
+</html>

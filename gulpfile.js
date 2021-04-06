@@ -1,178 +1,198 @@
-const { src, dest, watch, parallel, series } = require("gulp");
-const scss      = require("gulp-sass"),
-    prefix      = require("gulp-autoprefixer"),
-    sync        = require("browser-sync").create(),
-    imagemin    = require("gulp-imagemin"),
-    ttf2woff    = require("gulp-ttf2woff"),
-    ttf2woff2   = require("gulp-ttf2woff2"),
-    fi          = require("gulp-file-include"),
-    
-    fs          = require("fs");
+// /* Gulp moduls
+const { src, series, parallel, watch, dest } = require("gulp");
+//* Styles
+const _sass = require("gulp-sass");
+const _cssconcat = require("gulp-concat-css");
+const _autoprefixer = require("gulp-autoprefixer");
+//* HTML
+const _fileinclude = require("gulp-file-include");
+const _htmlbeautify = require("gulp-html-beautify");
+//* JS
+const _jsconcat = require("gulp-concat");
+//* Server
+const _bs = require("browser-sync").create();
+//* Files
+const _imagemin = require("gulp-imagemin");
+const _cache = require("gulp-cache");
+const _ttf2woff = require("gulp-ttf2woff");
+const _ttf2woff2 = require("gulp-ttf2woff2");
+const _fs = require("fs");
+const _webp = require("gulp-webp");
+const _webphtml = require("gulp-webp-in-html");
+const { sync } = require("gulp-sass");
+
+// // //! Styles
+// // /*
+//  * sass to css
+//  */
+const sassScss = () => {
+	return src("src/scss/*.scss")
+		.pipe(
+			_sass({
+				includePaths: ["src/scss"],
+				errLogToConsole: true,
+				outputStyle: "compressed",
+			})
+		)
+		.pipe(
+			_autoprefixer({
+				flex: true,
+				grid: true,
+				cascade: true,
+			})
+		)
+		.pipe(dest("dist/css"));
+};
+/*
+ * concat and compress CSS libs
+ */
+const concatCSS = () => {
+	return src(["src/css/*.css", "!src/css/style.css"])
+		.pipe(_cssconcat("bundle.css"))
+		.pipe(
+			_autoprefixer({
+				flex: true,
+				grid: true,
+				cascade: true,
+			})
+		)
+		.pipe(dest("dist/css"));
+};
+//! HTML
+/*
+ * include html files
+ */
+const fileinclude = () => {
+	return src("src/pages/*.html")
+		.pipe(
+			_fileinclude({
+				prefix: "@@",
+				basepath: "@file",
+			})
+		)
+		.pipe(
+			_htmlbeautify({
+				indent_with_tabs: true,
+				indent_size: 4,
+			})
+		)
+		.pipe(dest("dist"));
+};
+/*
+ * add webp to html
+ */
+const addWebpToHtml = () => {
+	return src(["dist/*.html"]).pipe(_webphtml()).pipe(dest("dist"));
+};
+//! Call this task when you finish a project
+exports.addWebpToHtml = addWebpToHtml;
+//! DevServer
+/*
+ * devserver config
+ */
 
 
+const browsersync = () => {
+	_bs.init({
+		server: {
+			baseDir: "dist/",
+		},
+		files: ["dist/*.html", "dist/**/*.js", "dist/**/*.css"],
+		notify: false,
+		open: "local",
+		ghostMode: {
+			clicks: true,
+			forms: true,
+			scroll: false,
+		},
+	});
+};
+//! Fonts
+/*
+ * tasks for font: convert, add to file _fonts.scss, move to build folder
+ */
+const fontVals = {
+	thin: 100,
+	thinitalic: 100,
+	light: 300,
+	lightitalic: 300,
+	regular: 400,
+	regularitalic: 400,
+	medium: 500,
+	mediumitalic: 500,
+	semibold: 600,
+	semibolditalic: 600,
+	bold: 700,
+	bolditalic: 700,
+	extrabold: 800,
+	extrabolditalic: 800,
+	black: 900,
+	blackitalic: 900,
+};
+const fontWeight = (font) => {
+	for (let item of Object.keys(fontVals)) {
+		if (font.toLowerCase().includes(item)) {
+			return fontVals[item];
+		}
+	}
+};
+const convertFonts = () => {
+	src("src/fonts/*.ttf").pipe(_ttf2woff()).pipe(dest("dist/fonts/"));
+	return src(["src/fonts/*.ttf"]).pipe(_ttf2woff2()).pipe(dest("dist/fonts/"));
+};
+const fontScss = "src/scss/_fonts.scss";
+const fontsStyle = () => {
+	let file_content = _fs.readFileSync(fontScss);
+	_fs.readdir("src/fonts", function (err, items) {
+		try {
+			if (items) {
+				let c_fontname;
+				for (let i = 0; i < items.length; i++) {
+					let fontname = items[i].split(".");
+					fontname = fontname[0];
+					if (c_fontname != fontname) {
+						_fs.appendFile(`${fontScss}`, `@include font-face("${fontname}", "${fontname}", ${fontWeight(fontname)});\r\n`, () => { });
+					}
+					c_fontname = fontname;
+				}
+			}
+		} catch (err) {
+			throw err;
+		}
+	});
+};
 
-//!** Create files, folders
-
-function createFiles() {
-    createFolders();
-
-    setTimeout(() => {
-    fs.writeFile("newfolder/index.html", "!", function (err) {
-        if (err) {
-            throw err;
-        }
-        console.log("File created");
-    })
-        fs.writeFile("newfolder/scss/style.scss", "!", function (err) {
-            if (err) {
-                throw err;
-            }
-            console.log("File created");
-        });
-    }, 500);
+//! Images
+const convertToWebp = () => {
+	return src("src/img/**/*.{jpg,png}").pipe(_webp()).pipe(dest("dist/img"));
+};
+const compressImgs = () => {
+	return src("src/img/**/*.{jpg,png,svg,webp}")
+		.pipe(_cache(_imagemin()))
+		.pipe(dest("dist/img"));
+};
+//! JS
+const concatJSLibs = () => {
+	return src("src/js/vendors/*.js")
+		.pipe(_jsconcat("bundle.js"))
+		.pipe(dest("dist/js/vendors"));
+};
+function moveJS() {
+	return src("src/js/*.js").pipe(dest("dist/js"));
 }
+exports.moveJS = moveJS;
+//! Watch
+/*
+ * task for files watching
+ */
+const startWatch = () => {
+	watch("src/pages/**/*.html", fileinclude);
+	watch("src/scss/*.scss", sassScss);
+	watch("src/fonts/*.ttf", series(convertFonts, fontsStyle));
+	watch("src/img/", series(convertToWebp, compressImgs));
+	watch("src/js/*.js", concatJSLibs);
+	watch(["src/css/*.css", "!src/css/style.css"], concatCSS);
+};
 
-function createFolders() {
-    return src('*.*', { read:false })
-        .pipe(dest('./newfolder/scss'))
-        .pipe(dest('./newfolder/js'))
-        .pipe(dest('./newfolder/img'))
-        .pipe(dest('./newfolder/fonts'));   
-}
-
-// !**  HTML parts
-
-const fileinclude = function () {
-    return src(["app/pages/**/*.html"])
-    .pipe(fi({
-      prefix: '@@',
-      basepath: '@file'
-    }))
-    .pipe(dest('app'));
-}
- 
-// !** Dev
-
-
-function convertStyles () {
-    return src('app/scss/style.scss')
-        .pipe(prefix({
-            cascade: true,
-            grid: true,
-            flex: true
-        }))
-        .pipe(scss({
-            outputStyle: 'compressed'
-        }))
-        .pipe(dest('app/css'));
-}
-
-function imagesCompressed() {
-    return src('app/_img/*.{jpg,png,svg}')
-        .pipe(imagemin())
-        .pipe(dest('app/img'));
-}
-
-function browserSync() {
-     sync.init({
-        server: {
-            baseDir: "app",
-            open: "local"
-        }
-    });
-}
-
-// ! Watch
-
-function watchFiles() {
-    watch('app/scss/**/*.scss', convertStyles);
-    watch('app/*.html').on("change", sync.reload);
-    watch('app/css/*.css').on("change", sync.reload);
-    watch('app/js/*.js').on("change", sync.reload);
-
-    watch('app/_img', imagesCompressed);
-
-    watch('app/pages/**/*.html', fileinclude);
-
-    watch('app/fonts/*.ttf', series(convertFonts, fontsStyle));
-}
-
-exports.convertStyles    = convertStyles;
-exports.watchFiles       = watchFiles;
-exports.browserSync      = browserSync;
-exports.imagesCompressed = imagesCompressed;
-
-exports.struct           = createFiles;
-
-exports.default = parallel(fileinclude, convertStyles, browserSync, watchFiles, series(convertFonts, fontsStyle));
-
-// !**Build 
-
-function moveHtml() {
-    return src('app/pages/*.html')
-    .pipe(dest('dist'))
-}
-function moveCss() {
-    return src('app/css/*.css')
-    .pipe(dest('dist/css'))
-}
-function moveJs() {
-    return src('app/js/*.js')
-    .pipe(dest('dist/js'))
-}
-function moveImg() {
-    return src('app/img/*')
-    .pipe(dest('dist/img'))
-}
-
-exports.moveHtml    = moveHtml;
-exports.moveCss     = moveCss;
-exports.moveJs      = moveJs;
-exports.moveImg     = moveImg;
-exports.fileinclude = fileinclude;
-
-exports.build = series(moveHtml, moveCss, moveJs, moveImg);
-
-//! Font Face для шрифтов
-const cb = () => {};
-
-let srcFonts = "app/scss/_fonts.scss";
-let appFonts = "app/fonts";
-
-function fontsStyle() {
-    let file_content = fs.readFileSync(srcFonts);
-
-    fs.writeFile(srcFonts, "", cb);
-    fs.readdir(appFonts, function (err, items) {
-        if (items) {
-            let c_fontname;
-            for (let i = 0; i < items.length; i++) {
-                let fontname = items[i].split(".");
-                fontname = fontname[0];
-                if (c_fontname != fontname) {
-                    fs.appendFile(
-                        srcFonts,
-                        '@include font-face("' +
-                            fontname +
-                            '", "' +
-                            fontname +
-                            '", 400);\r\n',
-                        cb
-                    );                  
-                }
-                c_fontname = fontname;
-            }
-        }
-    });
-}
-
-function convertFonts() {
-    src(["app/fonts/*.ttf"]).pipe(ttf2woff()).pipe(dest("app/fonts/"));
-    return src("app/fonts/*.ttf")
-        .pipe(ttf2woff2())
-        .pipe(dest("app/fonts/"));
-} 
-
-exports.fontsStyle   = fontsStyle;
-exports.convertFonts = convertFonts;
-exports.cFonts = series(convertFonts, fontsStyle);
+//? BUILD
+exports.default = parallel(concatCSS, compressImgs, concatJSLibs, moveJS, fileinclude, sassScss, browsersync, startWatch);
